@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sri Vision Eye Care — eye examinations, optical services and specialist eye-care consultations.">
+  <title>Sri Vision Eye Care | Clear Vision, Brighter Future</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --navy: #123b70;
+      --blue: #1677e8;
+      --teal: #19a9a1;
+      --ink: #20334d;
+      --muted: #65758b;
+      --pale: #f2f8ff;
+      --line: #e1eaf5;
+      --shadow: 0 16px 45px rgba(22, 65, 116, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0; background: #fff; color: var(--ink);
+      font-family: "DM Sans", sans-serif; line-height: 1.65;
+    }
+    h1,h2,h3,h4,h5,.navbar-brand { font-family: "Manrope", sans-serif; }
+    .section-pad { padding: 88px 0; }
+    .section-kicker {
+      color: var(--blue); font-size: .78rem; letter-spacing: .16em;
+      font-weight: 800; text-transform: uppercase;
+    }
+    .section-title { color: var(--navy); font-weight: 800; letter-spacing: -.035em; }
+    .section-subtitle { color: var(--muted); max-width: 690px; margin: 0 auto; }
+    .navbar {
+      background: rgba(255,255,255,.94); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(225,234,245,.8);
+      box-shadow: 0 4px 22px rgba(18,59,112,.035);
+    }
+    .navbar-brand { display:flex; align-items:center; gap:10px; color:var(--navy)!important; font-weight:800; line-height:1.05; letter-spacing:-.04em; }
+    .brand-mark {
+      width:45px;height:34px;display:grid;place-items:center;color:var(--blue);
+      border:2px solid var(--blue); border-radius: 70% 20% 70% 20%;
+      transform: rotate(-8deg); font-size:1.25rem;
+    }
+    .brand-name small { display:block; font-size:.62rem; letter-spacing:.25em; margin-top:5px; text-align:center; }
+    .nav-link { color:#354d6c; font-weight:600; font-size:.92rem; margin:0 .25rem; }
+    .nav-link:hover,.nav-link.active { color:var(--blue); }
+    .btn-primary-custom {
+      background: linear-gradient(135deg,var(--blue),#0756bd); color:#fff;
+      border:0; border-radius:12px; padding:13px 21px; font-weight:700;
+      box-shadow: 0 8px 20px rgba(22,119,232,.2); transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary-custom:hover { color:#fff; transform:translateY(-2px); box-shadow:0 12px 26px rgba(22,119,232,.28); }
+    .btn-outline-custom { border:1.5px solid #b9d8ff; color:var(--navy); background:#fff; border-radius:12px; padding:12px 20px; font-weight:700; }
+    .btn-outline-custom:hover { background:var(--pale); border-color:var(--blue); color:var(--blue); }
+    .hero {
+      padding: 145px 0 76px; position:relative; overflow:hidden;
+      background: radial-gradient(circle at 85% 20%, #e9f5ff 0, transparent 34%),
+                  linear-gradient(120deg,#fff 45%,#f7fbff 100%);
+    }
+    .hero:after { content:""; position:absolute; width:330px;height:330px;right:-150px;bottom:-190px;border:1px solid #d5e9ff;border-radius:50%;box-shadow:0 0 0 32px rgba(221,239,255,.35),0 0 0 64px rgba(221,239,255,.2); }
+    .hero h1 { font-size:clamp(2.5rem,5vw,4.5rem); line-height:1.08; font-weight:800; letter-spacing:-.055em; color:var(--navy); }
+    .hero h1 span { color:var(--blue); }
+    .hero-copy { color:var(--muted); font-size:1.08rem; max-width:560px; }
+    .hero-visual { min-height:390px; position:relative; display:grid; place-items:center; }
+    .eye-orbit { width:min(100%,420px); aspect-ratio:1; border-radius:50%; display:grid;place-items:center; position:relative;
+      background:radial-gradient(circle at 50% 45%,#fff 0,#edf7ff 54%,#d9edff 100%);
+      border:1px solid #d5eaff; box-shadow:inset 0 0 50px rgba(22,119,232,.08),var(--shadow); }
+    .eye-orbit:before,.eye-orbit:after { content:""; position:absolute;border:1px solid rgba(22,119,232,.22);border-radius:50%;inset:24px; }
+    .eye-orbit:after { inset:48px; }
+    .eye-illustration { width:78%;height:auto; filter:drop-shadow(0 18px 18px rgba(18,59,112,.13)); z-index:1; }
+    .floating-note { position:absolute; z-index:2; background:#fff; border:1px solid var(--line); border-radius:15px; padding:13px 17px; box-shadow:var(--shadow); font-size:.88rem; font-weight:700; }
+    .floating-note i { color:var(--teal); font-size:1.2rem; margin-right:7px; }
+    .note-one { top:12%;left:-2%; }.note-two { bottom:10%;right:-1%; }
+    .trust-strip { margin-top:-1px; background:#fff; position:relative;z-index:2; }
+    .trust-item { height:100%; padding:20px; display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:16px;background:#fff; }
+    .trust-icon { flex:0 0 48px;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:var(--blue);background:#eaf4ff;font-size:1.35rem; }
+    .trust-item strong { display:block;color:var(--navy);font-size:.95rem; }
+    .trust-item small { color:var(--muted); }
+    .service-card { height:100%; padding:25px 21px; border:1px solid var(--line); border-radius:18px; background:#fff; transition:all .25s; }
+    .service-card:hover { transform:translateY(-6px); border-color:#b8d8ff; box-shadow:var(--shadow); }
+    .service-icon { width:58px;height:58px;display:grid;place-items:center;background:linear-gradient(135deg,#eaf5ff,#e7fbfa);color:var(--blue);border-radius:17px;font-size:1.6rem;margin-bottom:18px; }
+    .service-card h3 { font-size:1.06rem;color:var(--navy);font-weight:800; }
+    .service-card p { color:var(--muted);font-size:.92rem;margin:0; }
+    .soft-section { background:linear-gradient(180deg,#f6faff,#fff); }
+    .doctor-card { height:100%; overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 8px 25px rgba(22,65,116,.04);transition:transform .25s,box-shadow .25s; }
+    .doctor-card:hover { transform:translateY(-5px);box-shadow:var(--shadow); }
+    .doctor-photo { height:220px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#dceeff,#eff9ff); }
+    .doctor-photo img { width:100%;height:100%;object-fit:cover; }
+    .doctor-placeholder { width:110px;height:110px;display:grid;place-items:center;border-radius:50%;background:#fff;color:var(--blue);font-size:3.3rem;box-shadow:var(--shadow); }
+    .doctor-info { padding:23px; }
+    .doctor-info h3 { color:var(--navy);font-size:1.15rem;font-weight:800;margin-bottom:4px; }
+    .doctor-specialty { color:var(--blue);font-size:.9rem;font-weight:700; }
+    .doctor-info p { color:var(--muted);font-size:.9rem; }
+    .credential { color:#62748b;font-size:.84rem;display:flex;gap:8px;margin:8px 0; }
+    .credential i { color:var(--teal); }
+    .location-card,.appointment-card { height:100%;padding:30px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:var(--shadow); }
+    .qr-frame { width:150px;height:150px;padding:8px;border:1px solid var(--line);border-radius:14px;background:white; }
+    .qr-frame img { width:100%;height:100%;object-fit:contain; }
+    .contact-icon { width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:#eaf4ff;color:var(--blue);font-size:1.35rem; }
+    .phone-number { font-size:clamp(1.6rem,3vw,2.25rem);font-weight:800;letter-spacing:-.04em;color:var(--navy);text-decoration:none; }
+    .phone-number:hover { color:var(--blue); }
+    .contact-band { background:linear-gradient(120deg,#f1f8ff,#f0fbfb);border-top:1px solid var(--line);border-bottom:1px solid var(--line); }
+    .form-control,.form-select { padding:12px 14px;border-color:#dbe6f2;border-radius:11px; }
+    .form-control:focus,.form-select:focus { border-color:#84bdff;box-shadow:0 0 0 .2rem rgba(22,119,232,.12); }
+    footer { padding:34px 0 20px;background:#fff; }
+    .footer-link { color:var(--muted);text-decoration:none;margin:0 10px;font-size:.9rem; }
+    .footer-link:hover { color:var(--blue); }
+    .social-link { display:inline-grid;place-items:center;width:37px;height:37px;border-radius:50%;background:#f0f6ff;color:var(--navy);margin-left:6px;text-decoration:none; }
+    .social-link:hover { background:var(--blue);color:#fff; }
+    .reveal { opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease; }
+    .reveal.visible { opacity:1;transform:translateY(0); }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after {scroll-behavior:auto!important;transition:none!important;} .reveal{opacity:1;transform:none;} }
+    @media (max-width:991px) { .hero{padding-top:125px}.hero-visual{min-height:320px;margin-top:30px}.eye-orbit{max-width:330px}.note-one{left:4%}.note-two{right:3%}.navbar .btn-primary-custom{margin-top:12px;} }
+    @media (max-width:575px) { .section-pad{padding:64px 0}.hero{padding:115px 0 50px}.hero-visual{min-height:280px}.eye-orbit{max-width:270px}.floating-note{font-size:.75rem;padding:9px 11px}.note-one{left:0}.note-two{right:0}.location-card,.appointment-card{padding:22px}.qr-frame{width:125px;height:125px} }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100" tabindex="0">
+  <!-- Navigation -->
+  <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home" aria-label="Sri Vision Eye Care home">
+        <span class="brand-mark"><i class="bi bi-eye-fill"></i></span>
+        <span class="brand-name">SRI VISION<small>EYE CARE</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navLinks">
+        <ul class="navbar-nav mx-auto my-3 my-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary-custom" href="tel:123456789"><i class="bi bi-telephone-fill me-2"></i>Call 123456789</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="hero">
+    <div class="container position-relative" style="z-index:1">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <div class="section-kicker mb-3"><i class="bi bi-stars me-2"></i>Clear vision • Brighter future</div>
+          <h1 class="mb-4">See the world<br>with <span>new clarity.</span></h1>
+          <p class="hero-copy mb-4">Welcome to <strong>Sri Vision Eye Care</strong> — your partner for eye health, vision testing and personalised optical care in a warm, professional setting.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a class="btn btn-primary-custom" href="#contact"><i class="bi bi-calendar2-check me-2"></i>Book an Appointment</a>
+            <a class="btn btn-outline-custom" href="#services"><i class="bi bi-eye me-2"></i>Explore Services</a>
+          </div>
+          <div class="d-flex flex-wrap gap-4 mt-4 small text-secondary">
+            <span><i class="bi bi-check-circle-fill text-success me-2"></i>Patient-focused care</span>
+            <span><i class="bi bi-check-circle-fill text-success me-2"></i>Modern eye-care services</span>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-visual">
+            <div class="eye-orbit">
+              <svg class="eye-illustration" viewBox="0 0 420 260" role="img" aria-label="Stylised illustration of a human eye">
+                <defs>
+                  <linearGradient id="iris" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#76d7ec"/><stop offset=".48" stop-color="#1787d8"/><stop offset="1" stop-color="#123b70"/></linearGradient>
+                  <linearGradient id="sclera" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#dceeff"/></linearGradient>
+                </defs>
+                <path d="M24 130 Q210 -22 396 130 Q210 282 24 130Z" fill="url(#sclera)" stroke="#4c8ed4" stroke-width="5"/>
+                <path d="M32 130 Q210 -5 388 130" fill="none" stroke="#123b70" stroke-width="9" stroke-linecap="round"/>
+                <circle cx="210" cy="130" r="76" fill="url(#iris)" stroke="#fff" stroke-width="8"/>
+                <circle cx="210" cy="130" r="39" fill="#102f55"/>
+                <circle cx="184" cy="103" r="19" fill="#fff" opacity=".85"/>
+                <circle cx="234" cy="151" r="8" fill="#8fe9ff" opacity=".9"/>
+                <path d="M50 103 Q210 -6 370 103" fill="none" stroke="#0f3b6f" stroke-width="7" stroke-linecap="round"/>
+                <path d="M66 166 Q210 250 354 166" fill="none" stroke="#9fc8ed" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="floating-note note-one"><i class="bi bi-heart-pulse-fill"></i>Care for every eye</div>
+            <div class="floating-note note-two"><i class="bi bi-shield-check"></i>Vision comes first</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Trust points -->
+  <section class="trust-strip py-4" id="about">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-sm-6 col-xl-3"><div class="trust-item"><div class="trust-icon"><i class="bi bi-shield-check"></i></div><div><strong>Patient-first approach</strong><small>Thoughtful, personalised care</small></div></div></div>
+        <div class="col-sm-6 col-xl-3"><div class="trust-item"><div class="trust-icon"><i class="bi bi-person-badge"></i></div><div><strong>Experienced specialists</strong><small>Meet our eye-care team</small></div></div></div>
+        <div class="col-sm-6 col-xl-3"><div class="trust-item"><div class="trust-icon"><i class="bi bi-eyeglasses"></i></div><div><strong>Optical guidance</strong><small>Support for clearer vision</small></div></div></div>
+        <div class="col-sm-6 col-xl-3"><div class="trust-item"><div class="trust-icon"><i class="bi bi-calendar2-check"></i></div><div><strong>Easy appointments</strong><small>Call our team to schedule</small></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section-pad">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="section-kicker mb-2">Our services</div>
+        <h2 class="section-title display-6 mb-3">Complete care for your vision</h2>
+        <p class="section-subtitle">From routine eye checks to specialist assessments, explore common eye-care and surgical service categories. Availability depends on clinical evaluation and the services offered by the centre.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><article class="service-card"><div class="service-icon"><i class="bi bi-eye"></i></div><h3>Comprehensive Eye Exams</h3><p>Vision checks and eye-health assessments for different age groups.</p></article></div>
+        <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><article class="service-card"><div class="service-icon"><i class="bi bi-brightness-high"></i></div><h3>Cataract Care</h3><p>Assessment, treatment guidance and referral for cataract surgery.</p></article></div>
+        <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><article class="service-card"><div class="service-icon"><i class="bi bi-bullseye"></i></div><h3>LASIK & Refractive Care</h3><p>Eligibility assessments and guidance on vision-correction options.</p></article></div>
+        <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><article class="service-card"><div class="service-icon"><i class="bi bi-droplet-half"></i></div><h3>Glaucoma Services</h3><p>Eye-pressure checks, monitoring and specialist management.</p></article></div>
+        <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><article class="service-card"><div class="service-icon"><i class="bi bi-circle-half"></i></div><h3>Retina & Diabetic Eye Care</h3><p>Assessment and referral for retinal and diabetes-related eye concerns.</p></article></div>
+        <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><article class="service-card"><div class="service-icon"><i class="bi bi-eyeglasses"></i></div><h3>Optical & Contact Lenses</h3><p>Help choosing prescription spectacles and suitable contact lenses.</p></article></div>
+        <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><article class="service-card"><div class="service-icon"><i class="bi bi-activity"></i></div><h3>Cornea & Eye Surface</h3><p>Evaluation of corneal conditions and other eye-surface problems.</p></article></div>
+        <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><article class="service-card"><div class="service-icon"><i class="bi bi-person-hearts"></i></div><h3>Paediatric Eye Care</h3><p>Child-friendly vision screening and eye-care consultations.</p></article></div>
+      </div>
+      <p class="text-center text-secondary small mt-4 mb-0">Surgical procedures are performed only by appropriately qualified clinicians at a properly equipped facility, where available.</p>
+    </div>
+  </section>
+
+  <!-- Doctors -->
+  <section id="doctors" class="section-pad soft-section">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="section-kicker mb-2">Doctors corner</div>
+        <h2 class="section-title display-6 mb-3">Meet our eye-care team</h2>
+        <p class="section-subtitle">Add your clinic’s verified doctor profiles below. The names and credentials shown are sample placeholders and must be replaced before publishing.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="doctor-card">
+            <div class="doctor-photo"><div class="doctor-placeholder"><i class="bi bi-person-badge"></i></div></div>
+            <div class="doctor-info">
+              <h3>Dr. Doctor One</h3><div class="doctor-specialty">Ophthalmologist</div>
+              <div class="credential"><i class="bi bi-mortarboard"></i><span>Add verified qualifications</span></div>
+              <div class="credential"><i class="bi bi-clock"></i><span>Add years of experience</span></div>
+              <p class="mt-3 mb-0">Add a short, accurate biography and areas of clinical interest.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="doctor-card">
+            <div class="doctor-photo"><div class="doctor-placeholder"><i class="bi bi-person-badge"></i></div></div>
+            <div class="doctor-info">
+              <h3>Dr. Doctor Two</h3><div class="doctor-specialty">Eye Specialist</div>
+              <div class="credential"><i class="bi bi-mortarboard"></i><span>Add verified qualifications</span></div>
+              <div class="credential"><i class="bi bi-clock"></i><span>Add years of experience</span></div>
+              <p class="mt-3 mb-0">Add a short, accurate biography and areas of clinical interest.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="doctor-card">
+            <div class="doctor-photo"><div class="doctor-placeholder"><i class="bi bi-person-badge"></i></div></div>
+            <div class="doctor-info">
+              <h3>Dr. Doctor Three</h3><div class="doctor-specialty">Optometrist / Eye Specialist</div>
+              <div class="credential"><i class="bi bi-mortarboard"></i><span>Add verified qualifications</span></div>
+              <div class="credential"><i class="bi bi-clock"></i><span>Add years of experience</span></div>
+              <p class="mt-3 mb-0">Add a short, accurate biography and areas of clinical interest.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location and appointment -->
+  <section id="location" class="section-pad">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg- 12 reveal">
+          <div class="location-card">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div><div class="section-kicker">Visit us</div><h2 class="section-title h3 mb-0">Our Location</h2></div>
+            </div>
+            <p class="text-secondary"></p>
+            <div class="d-flex flex-wrap align-items-center gap-4 mt-4">
+              <a class="qr-frame d-inline-block" id="mapQrLink" href="https://www.google.com/maps/place/Sri+Vision+Eye+Hospital+And+Laser+Center/@17.3260268,78.5476057,16z/data=!4m10!1m2!2m1!1sSri+Vision+Eye+Care!3m6!1s0x3bcba3ca73b2ec53:0x2fd12f91ee637776!8m2!3d17.3260268!4d78.5571329!15sChNTcmkgVmlzaW9uIEV5ZSBDYXJlWhUiE3NyaSB2aXNpb24gZXllIGNhcmWSAQhob3NwaXRhbJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSWVh6ZGhZVEJuUlJBQuABAPoBBAgAEEg!16s%2Fg%2F11lmkb8n_d?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Open Sri Vision Eye Care in Google Maps">
+                <img id="mapQr" alt="QR code to search Sri Vision Eye Care on Google Maps" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DSri%2BVIsion%2BEye%2BCare">
+              </a>
+              <div>
+                <h3 class="h6 fw-bold text-primary-emphasis"><i class="bi bi-geo-alt-fill me-2"></i>Sri Vision Eye Care</h3>
+                <p class="text-secondary small mb-2">Add your street address,<br>area, city and PIN code here.</p>
+                <a id="mapTextLink" href="https://www.google.com/maps/search/?api=1&query=Sri+Vision+Eye+Care" target="_blank" rel="noopener" class="fw-bold text-decoration-none">Open Google Maps <i class="bi bi-arrow-up-right ms-1"></i></a>
+              </div>
+            </div>
+            <div class="alert alert-info small mt-4 mb-0"><i class="bi bi-info-circle me-2"></i>The QR code currently opens a Google Maps search, not a verified street address.</div>
+          </div>
+        </div>
+        
+            
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing banner -->
+  <section class="contact-band py-5">
+    <div class="container text-center">
+      <div class="section-kicker mb-2">Your vision matters</div>
+      <h2 class="section-title mb-3">A clearer tomorrow starts today.</h2>
+      <p class="text-secondary mb-4">Contact Sri Vision Eye Care to enquire about a visit.</p>
+      <a href="tel:123456789" class="btn btn-primary-custom"><i class="bi bi-telephone-fill me-2"></i>Call 123456789</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center gy-3 pb-4">
+        <div class="col-lg-4">
+          <a class="navbar-brand" href="#home"><span class="brand-mark"><i class="bi bi-eye-fill"></i></span><span class="brand-name">SRI VISION<small>EYE CARE</small></span></a>
+        </div>
+        <div class="col-lg-5 text-lg-center">
+          <a class="footer-link" href="#about">About</a><a class="footer-link" href="#services">Services</a><a class="footer-link" href="#doctors">Doctors</a><a class="footer-link" href="#location">Location</a>
+        </div>
+        <div class="col-lg-3 text-lg-end">
+          <a class="social-link" href="#contact" aria-label="Contact"><i class="bi bi-telephone"></i></a>
+          <a class="social-link" href="#location" aria-label="Location"><i class="bi bi-geo-alt"></i></a>
+          <a class="social-link" href="#home" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+        </div>
+      </div>
+      <div class="border-top pt-3 d-flex flex-wrap justify-content-between gap-2 small text-secondary">
+        <span>© <span id="year"></span> Sri Vision Eye Care. All rights reserved.</span>
+        <span>Clear Vision • Brighter Future</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Update footer year automatically.
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Close the mobile menu after a navigation link is selected.
+    document.querySelectorAll("#navLinks .nav-link").forEach(function (link) {
+      link.addEventListener("click", function () {
+        const menu = document.getElementById("navLinks");
+        if (menu.classList.contains("show")) {
+          bootstrap.Collapse.getOrCreateInstance(menu).hide();
+        }
+      });
+    });
+
+    // Subtle reveal animation, with a fallback for browsers without IntersectionObserver.
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach(function (item) { observer.observe(item); });
+    } else {
+      revealItems.forEach(function (item) { item.classList.add("visible"); });
+    }
+
+    // Demo appointment request: opens WhatsApp. Replace with the clinic's real WhatsApp number.
+    document.getElementById("appointmentForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const name = document.getElementById("patientName").value.trim();
+      const date = document.getElementById("visitDate").value;
+      const reason = document.getElementById("visitReason").value;
+      if (!name || !date || !reason) return;
+
+      // IMPORTANT: Replace 91XXXXXXXXXX with the clinic's WhatsApp number including country code.
+      const whatsappNumber = "91XXXXXXXXXX";
+      const message = "Hello Sri Vision Eye Care, I would like to request an appointment.%0AName: "
+        + encodeURIComponent(name) + "%0APreferred date: "
+        + encodeURIComponent(date) + "%0AService: " + encodeURIComponent(reason);
+      if (whatsappNumber.includes("X")) {
+        document.getElementById("formMessage").textContent =
+          "Your details are ready. Please call 123456789 to book, or add the clinic's WhatsApp number in the code to enable WhatsApp requests.";
+        return;
+      }
+      window.open("https://wa.me/" + whatsappNumber + "?text=" + message, "_blank", "noopener");
+      document.getElementById("formMessage").textContent = "WhatsApp opened with your appointment request.";
+    });
+  </script>
+</body>
+</html>
